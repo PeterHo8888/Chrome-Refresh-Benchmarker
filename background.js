@@ -5,7 +5,7 @@ var endTime = 0;
 function doBenchmark(tab, amount) {
     refreshes_count = 0;
     startTime = new Date();
-    chrome.tabs.reload(tab);
+    chrome.tabs.reload(tab, {bypassCache: true});
     chrome.tabs.onUpdated.addListener(function doBenchmark(tabId, info) {
         if (tabId === tab && info.status === 'complete') {
             if (++refreshes_count >= amount) {
@@ -14,7 +14,7 @@ function doBenchmark(tab, amount) {
                 chrome.tabs.onUpdated.removeListener(doBenchmark);
                 return;
             }
-            chrome.tabs.reload(tab);
+            chrome.tabs.reload(tab, {bypassCache: true});
         }
 
     });
