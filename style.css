@@ -1,0 +1,10 @@
+body {
+    background-color: #000;
+    foreground-color: #fff;
+}
+
+input {
+    foreground-color: #0f0;
+    font-family: "Courier";
+    font-size:20pt;
+}
